@@ -13,12 +13,12 @@ const key = "7c7dbb4b70c9ce1cc2f0199c27bcd077";
 
 // funtion to get the url with the right city and temperature units
 function getUrl(city, units) {
+  // check what units we are using and pass it into the url
   if (units === "celsius") {
     units = "metric";
   } else {
     units = "imperial";
   }
-  console.log("units");
   return `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&APPID=${key}`;
 }
 
@@ -31,12 +31,14 @@ function getCityAndUnitData() {
 
 //function to fetch the weather data from the server and then processes it
 function getWeather(cityUrl) {
+  // show the loader
   loader.hidden = false;
-
+  //fetch the data
   fetch(cityUrl)
     .then(function (response) {
       return response.json();
     })
+    //print the data to the dom
     .then(function (response) {
       console.log(response);
       cityName.innerHTML = `City: ${response.name}`;
@@ -47,13 +49,14 @@ function getWeather(cityUrl) {
       changeColor(response.main.temp);
       loader.hidden = true;
     })
+    // error message
     .catch(function (error) {
       loader.hidden = true;
 
       alert(error);
     });
 }
-
+// changing background depending on the temperature
 function changeColor(temperature) {
   if (temperatureType.value === "celsius") {
     if (temperature > 0 && temperature < 10) {
