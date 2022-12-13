@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div id="content">
+      <form action="" id="chooseCityForm">
+        <input
+          type="text"
+          name="city"
+          id="cityForm"
+          placeholder="write city here..."
+        />
+        <select name="temperatureType" id="temperatureType">
+          <option value="celsius">celsius</option>
+          <option value="fahrenheit">fahrenheit</option>
+        </select>
+      </form>
+      <button id="fetchButton">search for the city</button>
+
+      <div id="weatherData">
+        <div id="name"></div>
+        <div id="country"></div>
+        <div id="temperature"></div>
+        <div id="feelsLike"></div>
+        <div id="humidity"></div>
+      </div>
+    </div>
+  </body>
+</html>

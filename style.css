@@ -1,0 +1,22 @@
+* {
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-image: url(https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80);
+  font-size: 2rem;
+  background-size: cover;
+}
+
+input {
+  background-color: rgb(88, 189, 88);
+  border: 4px solid black;
+  border-radius: 5px;
+}
+
+#weatherData {
+  background-color: rgb(88, 189, 88);
+  border-radius: 10px;
+}
