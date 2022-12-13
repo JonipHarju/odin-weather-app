@@ -7,6 +7,7 @@ const temperature = document.getElementById("temperature");
 const temperatureType = document.getElementById("temperatureType");
 const feelsLike = document.getElementById("feelsLike");
 const humidity = document.getElementById("humidity");
+const loader = document.getElementById("loader");
 const body = document.body;
 const key = "7c7dbb4b70c9ce1cc2f0199c27bcd077";
 
@@ -30,6 +31,8 @@ function getCityAndUnitData() {
 
 //function to fetch the weather data from the server and then processes it
 function getWeather(cityUrl) {
+  loader.hidden = false;
+
   fetch(cityUrl)
     .then(function (response) {
       return response.json();
@@ -42,8 +45,11 @@ function getWeather(cityUrl) {
       feelsLike.innerHTML = `Feels Like: ${response.main.feels_like}`;
       humidity.innerHTML = `humidity is ${response.main.humidity}%`;
       changeColor(response.main.temp);
+      loader.hidden = true;
     })
     .catch(function (error) {
+      loader.hidden = true;
+
       alert(error);
     });
 }
